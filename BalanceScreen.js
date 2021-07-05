@@ -17,7 +17,14 @@ export default class BalanceScreen extends Component {
   }
 
   componentDidMount() {
-    this.fetchBalance();
+    this._unsubscribe = this.props.navigation.addListener("focus", (e) => {
+      this.setState({ isLoading: true });
+      this.fetchBalance();
+    });
+  }
+
+  componentWillUnmount() {
+    this._unsubscribe();
   }
 
   fetchBalance() {
@@ -38,13 +45,6 @@ export default class BalanceScreen extends Component {
       });
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.address !== this.props.address) {
-      this.state.isLoading = true;
-      this.fetchBalance();
-    }
-  }
-
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -54,6 +54,7 @@ export default class BalanceScreen extends Component {
           onPress={() => this.props.navigation.navigate("ProfileScreen")}
         />
         <View style={styles.container}>
+          <Text>Balance History</Text>
           {!this.state.isLoading && (
             <BalanceGraph
               balanceHistory={GetBalanceHistory(
@@ -63,7 +64,7 @@ export default class BalanceScreen extends Component {
               )}
             />
           )}
-          <Text>Balance {this.state.balance}</Text>
+          <Text>Current Balance {this.state.balance}</Text>
           <StatusBar style="auto" />
           <View style={[{ alignSelf: "stretch", padding: 16 }]}>
             <Button

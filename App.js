@@ -2,12 +2,12 @@ import "react-native-gesture-handler";
 import React, { Component } from "react";
 import { StyleSheet } from "react-native";
 import BalanceConsumer from "./BalanceConsumer";
-import SendScreen from "./SendScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import SignInScreen from "./SignInScreen";
 import ProfileScreen from "./ProfileScreen";
 import { AddressContext } from "./AddressContext";
+import SendConsumer from "./SendConsumer";
 const Stack = createStackNavigator();
 
 export default class App extends Component {
@@ -32,13 +32,13 @@ export default class App extends Component {
       >
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="BalanceScreen" component={BalanceConsumer} />
-            <Stack.Screen name="SendScreen" component={SendScreen} />
             <Stack.Screen
               name="SignInScreen"
               options={{ setAddress: this.setAddress }}
               component={SignInScreen}
             />
+            <Stack.Screen name="BalanceScreen" component={BalanceConsumer} />
+            <Stack.Screen name="SendScreen" component={SendConsumer} />
             <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
           </Stack.Navigator>
         </NavigationContainer>

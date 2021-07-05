@@ -24,13 +24,16 @@ export default class SendScreen extends Component {
     })
       .then((response) => {
         if (response.status === 200) {
-          Alert.alert("Sent");
+          Alert.alert("Sent Coins");
         } else if (response.status === 422) {
           Alert.alert("Insufficient Funds");
+        } else {
+          Alert.alert("Something went wrong");
         }
       })
       .catch((error) => {
         console.error(error);
+        Alert.alert("Something went wrong");
       });
   }
 
@@ -45,10 +48,10 @@ export default class SendScreen extends Component {
   render() {
     return (
       <View>
-        <Text>Address</Text>
+        <Text>To Address</Text>
         <TextInput
           style={{ height: 40 }}
-          placeholder="Bob"
+          placeholder="Alice"
           onChangeText={(text) => this.setAddress(text)}
         />
         <Text>Amount</Text>
