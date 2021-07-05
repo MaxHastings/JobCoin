@@ -59,7 +59,7 @@ export default class BalanceScreen extends Component {
             <BalanceGraph
               balanceHistory={GetBalanceHistory(
                 this.props.address,
-                parseInt(this.state.balance),
+                parseFloat(this.state.balance),
                 this.state.transactions
               )}
             />
