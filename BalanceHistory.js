@@ -9,8 +9,12 @@ export default function GetBalanceHistory(
   for (var i = 0; i < transactions.length; i++) {
     var tx = transactions[i];
     if (tx.toAddress === address) {
-      currentBalance -= parseFloat(tx.amount);
-      history.push(currentBalance);
+      if (tx.fromAddress === address) {
+        history.push(currentBalance);
+      } else {
+        currentBalance -= parseFloat(tx.amount);
+        history.push(currentBalance);
+      }
     } else {
       currentBalance += parseFloat(tx.amount);
       history.push(currentBalance);
