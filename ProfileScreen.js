@@ -1,6 +1,7 @@
 import "react-native-gesture-handler";
 import React, { Component } from "react";
-import { StyleSheet, SafeAreaView, Button } from "react-native";
+import { SafeAreaView, Button } from "react-native";
+import styles from "./Styles";
 
 export default class ProfileScreen extends Component {
   constructor(props) {
@@ -18,12 +19,3 @@ export default class ProfileScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

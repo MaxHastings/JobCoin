@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, TextInput, View, Button, Alert } from "react-native";
+import { Text, TextInput, SafeAreaView, Button, Alert } from "react-native";
 
 export default class SendScreen extends Component {
   address = "";
@@ -47,7 +47,7 @@ export default class SendScreen extends Component {
 
   render() {
     return (
-      <View style={[{ padding: 16 }]}>
+      <SafeAreaView style={styles.container}>
         <Text>To Address</Text>
         <TextInput
           style={{ height: 40 }}
@@ -61,7 +61,7 @@ export default class SendScreen extends Component {
           onChangeText={(text) => this.setAmount(text)}
         />
         <Button title="Send JobCoin" onPress={() => this.sendCoins()} />
-      </View>
+      </SafeAreaView>
     );
   }
 }

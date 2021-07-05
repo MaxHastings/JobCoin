@@ -1,13 +1,8 @@
 import "react-native-gesture-handler";
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  Text,
-  Button,
-  TextInput,
-} from "react-native";
+import { SafeAreaView, Text, Button, TextInput } from "react-native";
 import { AddressContext } from "./AddressContext";
+import styles from "./Styles";
 
 export default class SignInScreen extends Component {
   address = "";
@@ -47,12 +42,3 @@ export default class SignInScreen extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
