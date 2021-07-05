@@ -47,7 +47,7 @@ export default class SendScreen extends Component {
 
   render() {
     return (
-      <View>
+      <View style={[{ padding: 16 }]}>
         <Text>To Address</Text>
         <TextInput
           style={{ height: 40 }}
