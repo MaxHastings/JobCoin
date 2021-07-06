@@ -31,11 +31,7 @@ export default class App extends Component {
       >
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen
-              name="SignInScreen"
-              options={{ setAddress: this.setAddress }}
-              component={SignInScreen}
-            />
+            <Stack.Screen name="SignInScreen" component={SignInScreen} />
             <Stack.Screen name="BalanceScreen" component={BalanceConsumer} />
             <Stack.Screen name="SendScreen" component={SendConsumer} />
             <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
